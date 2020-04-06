@@ -1,17 +1,17 @@
-param([Parameter(Mandatory=$false)] [string] $resourceGroup = "serverless-workshop-rg",
-      [Parameter(Mandatory=$false)] [string] $subscriptionId = "6bdcc705-8db6-4029-953a-e749070e6db6",
-      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "/Users/monojitdattams/Development/Projects/Serverless_Projects/C#_Sources/IoTEnterpriseApp/IoTEnterpriseApp-Setup",
-      [Parameter(Mandatory=$false)] [string] $keyVaultname = "serverless-iothub-kv",
-      [Parameter(Mandatory=$false)] [string] $objectId = "890c52c5-d318-4185-a548-e07827190ff6",
-      [Parameter(Mandatory=$false)] [string] $iotHubName = "serverless-iot-hub",
-      [Parameter(Mandatory=$false)] [string] $iotHubConsumerGroupName = "serverless-iothub-cg",
-      [Parameter(Mandatory=$false)] [string] $httpfuncAppName = "IoTHttpApp",
-      [Parameter(Mandatory=$false)] [string] $senderfuncAppName = "IoTSenderApp",
-      [Parameter(Mandatory=$false)] [string] $receiverfuncAppName = "IoTReceiverApp",
-      [Parameter(Mandatory=$false)] [string] $eventHubNamespaceName = "serverless-eventhub-ns",
-      [Parameter(Mandatory=$false)] [string] $eventHubName = "serverless-eventhub",
-      [Parameter(Mandatory=$false)] [string] $eventHubConsumerGroupName = "serverless-eventhub-cg",
-      [Parameter(Mandatory=$false)] [string] $storageAccountName = "srvlswkstorage")
+param([Parameter(Mandatory=$false)] [string] $resourceGroup = "<resource_group>",
+      [Parameter(Mandatory=$false)] [string] $subscriptionId = "<subscription_Id>",
+      [Parameter(Mandatory=$false)] [string] $baseFolderPath = "<baseFolder_Path>",
+      [Parameter(Mandatory=$false)] [string] $keyVaultName = "<keyVault_Name>",
+      [Parameter(Mandatory=$false)] [string] $objectId = "<object_Id>",
+      [Parameter(Mandatory=$false)] [string] $iotHubName = "<iotHub_Name>",
+      [Parameter(Mandatory=$false)] [string] $iotHubConsumerGroupName = "<iotHubConsumerGroup_Name>",
+      [Parameter(Mandatory=$false)] [string] $httpfuncAppName = "<httpfuncApp_Name>",
+      [Parameter(Mandatory=$false)] [string] $senderfuncAppName = "<senderfuncApp_Name>",
+      [Parameter(Mandatory=$false)] [string] $receiverfuncAppName = "<receiverfuncApp_Name>",
+      [Parameter(Mandatory=$false)] [string] $eventHubNamespaceName = "<eventHubNamespace_Name>",
+      [Parameter(Mandatory=$false)] [string] $eventHubName = "<eventHub_Name>",
+      [Parameter(Mandatory=$false)] [string] $eventHubConsumerGroupName = "<eventHubConsumerGroup_Name>",
+      [Parameter(Mandatory=$false)] [string] $storageAccountName = "<storageAccount_Name>")
 
 $templatesFolderPath = $baseFolderPath + "/Templates"
 $keyvaultDeployCommand = "/iotent-keyvault-deploy.ps1 -rg $resourceGroup -fpath $templatesFolderPath -keyVaultName $keyVaultName -objectId $objectId"

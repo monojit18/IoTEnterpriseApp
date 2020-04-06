@@ -1,0 +1,141 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "srvlsVNetName": {
+        "type": "string"
+      },
+      "srvlsVNetPrefix": {
+        "type": "string",
+        "defaultValue": "175.0.0.0/16"
+      },      
+      "iotSubnetName": {
+        "type": "string"
+      },
+      "iotSubnetPrefix": {
+        "type": "string",
+        "defaultValue": "175.0.0.0/24"        
+      },      
+      "ehubSubnetName": {
+        "type": "string"
+      },
+      "ehubSubnetPrefix": {
+        "type": "string",
+        "defaultValue": "175.0.1.0/24"
+      },      
+      "sendFuncSubnetname": {
+        "type": "string"
+      },
+      "sendFuncSubnetPrefix": {
+        "type": "string",
+        "defaultValue": "175.0.2.0/24"
+      },
+      "receiveFuncSubnetName": {
+        "type": "string"
+      },
+      "receiveFuncSubnetPrefix": {
+        "type": "string",
+        "defaultValue": "175.0.3.0/24"
+      },
+      "httpFuncSubnetname": {
+        "type": "string"
+      },
+      "httpFuncSubnetPrefix": {
+        "type": "string",
+        "defaultValue": "175.0.4.0/24"
+      },
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+      }
+    },
+    "variables": {},
+    "resources": [
+      {
+        "apiVersion": "2018-10-01",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[parameters('srvlsVNetName')]",
+        "location": "[parameters('location')]",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "[parameters('srvlsVNetPrefix')]"
+            ]
+          }
+        },
+        "resources": [
+          {
+            "apiVersion": "2018-10-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('iotSubnetName')]",
+            "dependsOn": [
+              "[parameters('srvlsVNetName')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('iotSubnetPrefix')]"
+            }
+          },          
+          {
+            "apiVersion": "2018-10-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('ehubSubnetName')]",
+            "dependsOn": [
+              "[parameters('srvlsVNetName')]",
+              "[parameters('iotSubnetName')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('ehubSubnetPrefix')]"
+            }
+          },
+          {
+            "apiVersion": "2018-10-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('sendFuncSubnetname')]",
+            "dependsOn": [
+              "[parameters('srvlsVNetName')]",
+              "[parameters('iotSubnetName')]",
+              "[parameters('ehubSubnetName')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('sendFuncSubnetPrefix')]"
+            }
+          },
+          {
+            "apiVersion": "2018-10-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('receiveFuncSubnetName')]",
+            "dependsOn": [
+              "[parameters('srvlsVNetName')]",
+              "[parameters('iotSubnetName')]",
+              "[parameters('ehubSubnetName')]",              
+              "[parameters('sendFuncSubnetname')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('receiveFuncSubnetPrefix')]"
+            }
+          },
+          {
+            "apiVersion": "2018-10-01",
+            "type": "subnets",
+            "location": "[parameters('location')]",
+            "name": "[parameters('httpFuncSubnetname')]",
+            "dependsOn": [
+              "[parameters('srvlsVNetName')]",
+              "[parameters('iotSubnetName')]",
+              "[parameters('ehubSubnetName')]",              
+              "[parameters('sendFuncSubnetname')]",
+              "[parameters('receiveFuncSubnetName')]"
+            ],
+            "properties": {
+              "addressPrefix": "[parameters('httpFuncSubnetPrefix')]"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

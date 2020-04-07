@@ -73,7 +73,7 @@ namespace iotenthttp
                                                     deviceClient);
 
             log.LogInformation($"Done:{DateTime.Now.ToLongTimeString()}");
-            return new OkObjectResult("OK");
+            return new OkObjectResult("OK-DONE");
         }
     }
 }

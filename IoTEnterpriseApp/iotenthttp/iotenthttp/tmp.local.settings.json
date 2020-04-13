@@ -1,0 +1,9 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "<storage_account_key>",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "DEVICE_ID_1": "<Device_ID>",
+        "CONN_DEVICE_1": "<IoTHub_Conn>"
+    }
+}

@@ -34,9 +34,7 @@ namespace iotentehubapp
                     log.LogInformation($"PartitionKey:{eventData.Properties[partitionKeyName]}");                
 
 
-            }
-
-            
+            }            
         }
     }
 }

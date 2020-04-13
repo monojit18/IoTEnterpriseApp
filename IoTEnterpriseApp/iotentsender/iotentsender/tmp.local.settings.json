@@ -1,0 +1,11 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "<storage_account_key>",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "IOT_HUB_CONN": "<IOT_HUB_CONN>",
+        "EVENT_HUB_CONN": "<EVENT_HUB_CONN>",
+        "EVENT_HUB_NAME": "<EVENT_HUB_NAME>",
+        "PARTITION_KEY_NAME": "<PARTITION_KEY_NAME>"
+    }
+}

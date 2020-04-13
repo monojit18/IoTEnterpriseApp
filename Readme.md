@@ -190,7 +190,7 @@ public static void Run([EventHubTrigger("srvlss-workshop-ehb",
 }
 ```
 
-This function is fired when data comes to EventHub (*sent by the IoTHubTrigger fcunction mentioned above*). For this POC, the function only prints out the data coming to EventHub
+This function is fired when data comes to EventHub (*sent by the IoTHubTrigger function mentioned above*). For this POC, the function only prints out the data coming to EventHub
 
 #### tmp.local.settings.json
 

@@ -469,6 +469,26 @@ Please look at the *Path filters* section - *IoTEnterpriseApp* is the folder nam
 
 
 
+#### Pipeline Variables
+
+![](./Assets/EventHub-vars.png)
+
+![Http-vars](./Assets/Http-vars.png)
+
+![Setup-vars](./Assets/Setup-vars.png)
+
+These are variables for each CD Pipeline used by PowerShell scripts as described above.
+
+#### Variable Groups
+
+![](./Assets/variablegroup1.png)
+
+![variablegroup2](./Assets/variablegroup2.png)
+
+Secured values are automatically downloaded by ADO before initiating any of the tasks. So, you need to create a *Variable Group* in *Library* section. And then link that Variable G*roup* to *Pipeline Variables* section as shown above
+
+
+
 #### IoTEnterpriseApp-Http
 
 #### IoTEnterpriseApp-Sender

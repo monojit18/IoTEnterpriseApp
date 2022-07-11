@@ -1,0 +1,7 @@
+**/.vs
+**/.DS_Store
+**/bin
+**/obj
+**/PublishProfiles
+**/packages
+**/local.settings.json
